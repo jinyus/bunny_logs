@@ -10,6 +10,8 @@ Usage of bunny_logs:
 
 ## How to use:
 
+- download the binary from the [releases page](https://github.com/jinyus/bunny_logs/releases)
+
 - download your log from the bunnycdn panel from https://panel.bunny.net
 
 - Run the command:
