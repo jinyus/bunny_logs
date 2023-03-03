@@ -1,4 +1,4 @@
-CLI to process logs from [bunnycdn](https://bunny.net)
+CLI to process logs from [bunnycdn](https://bunny.net). This was made because I wanted to see which browser versions my visitors are using so I can know which js/css features can be used safely.
 
 ```zsh
 Usage of bunny_logs:
