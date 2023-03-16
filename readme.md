@@ -12,6 +12,8 @@ Usage of bunny_logs:
 
 - download the binary from the [releases page](https://github.com/jinyus/bunny_logs/releases)
 
+  OR: build it yourself by cloning the repo and running `go build`
+
 - download your log from the bunnycdn panel from https://panel.bunny.net
 
 - Run the command:
