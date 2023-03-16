@@ -2,7 +2,9 @@ package main
 
 import (
 	"bufio"
+	"compress/gzip"
 	"fmt"
+	"io"
 	"log"
 	"os"
 	"sort"
@@ -71,7 +73,17 @@ func scanFile(filename string, ch chan string, done chan int) {
 	}
 	defer f.Close()
 
-	sc := bufio.NewScanner(f)
+	var fileReader io.Reader = f
+
+	if strings.Contains(filename, ".gz") {
+		fileReader, err = gzip.NewReader(f)
+		if err != nil {
+			log.Fatalf("gzip reader error: %v", err)
+			return
+		}
+	}
+
+	sc := bufio.NewScanner(fileReader)
 	for sc.Scan() {
 		ch <- sc.Text() // GET the line string
 	}
