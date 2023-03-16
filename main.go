@@ -137,6 +137,10 @@ func main() {
 		}
 	}
 
+	uniqueUsers := len(ipUATracker)
+
+	fmt.Println("\nUnique users:", uniqueUsers)
+
 	summarize(cTracker, "countries", 10)
 	summarize(ipTracker, "IPs", 10)
 	summarize(pagesTracker, "Pages", 15)
