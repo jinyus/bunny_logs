@@ -50,7 +50,7 @@ func contains(s []string, e string) bool {
 	return false
 }
 
-func parseLogLine(line string) (ip, referer, useragent, country string) {
+func parseLogLine(line string) (ip, referer, page, useragent, country string) {
 	parts := strings.Split(line, "|")
 
 	if len(parts) < 9 {
@@ -62,6 +62,7 @@ func parseLogLine(line string) (ip, referer, useragent, country string) {
 	referer = parts[6]
 	useragent = parts[9]
 	country = parts[11]
+	page = parts[7]
 	return
 }
 

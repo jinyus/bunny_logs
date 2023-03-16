@@ -50,6 +50,7 @@ func main() {
 
 	cTracker := make(map[string]int)
 	refTracker := make(map[string]int)
+	pagesTracker := make(map[string]int)
 	ipTracker := make(map[string]int)
 
 	// 2 users can have the same ip so ip + user agent will be used to track unique users
@@ -88,7 +89,7 @@ func main() {
 	}()
 
 	for s := range ch {
-		ip, ref, ua, country := parseLogLine(s)
+		ip, ref, page, ua, country := parseLogLine(s)
 
 		cTracker[country]++
 		ipTracker[ip]++
@@ -108,6 +109,8 @@ func main() {
 		}
 
 		ipUATracker[ipUAKey]++
+
+		pagesTracker[page]++
 
 		userAgent := useragent.Parse(ua)
 
@@ -136,6 +139,7 @@ func main() {
 
 	summarize(cTracker, "countries", 10)
 	summarize(ipTracker, "IPs", 10)
+	summarize(pagesTracker, "Pages", 15)
 	summarize(refTracker, "Referers", 30)
 	summarize(broswerTracker, "browsers", 10)
 	summarize(osTracker, "OS", 10)
